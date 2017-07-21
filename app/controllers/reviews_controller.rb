@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :update, :destroy]
+  before_action :set_shop, only: [:index]
 
   # GET /reviews
   def index
-    @reviews = Review.all
-
+    @reviews = @shop.reviews
     render json: @reviews
   end
 
@@ -42,6 +42,10 @@ class ReviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_shop
+      @shop = Shop.find(params[:shop_id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -14,7 +14,8 @@ class Seed
         address: Faker::Address.street_address + " " + Faker::Address.city,
         description: Faker::Commerce.department,
         url: "http://lorempixel.com/250/250/nightlife",
-        hours: (Faker::Number.between(1, 12)).to_s + ":" + (Faker::Number.between(1, 59)).to_s
+        hours: (Faker::Number.between(1, 12)).to_s + ":" + (Faker::Number.between(1, 59)).to_s + "am" +
+        " - " + (Faker::Number.between(1, 12)).to_s + ":" + (Faker::Number.between(1, 59)).to_s + "pm"
       )
     end
     puts "Generated #{Shop.count} shops."
