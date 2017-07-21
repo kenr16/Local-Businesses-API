@@ -13,6 +13,17 @@ class ShopsController < ApplicationController
     render json: @shop
   end
 
+  def random
+    @shop = Shop.all.sample
+    render json: @shop
+  end
+
+  def search
+    search_term = params[:term]
+    @shops = Shop.all.where({name: search_term})
+    render json: @shops
+  end
+
   # POST /shops
   def create
     @shop = Shop.new(shop_params)

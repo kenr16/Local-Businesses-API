@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  # get 'reviews', to: 'reviews#index'
+  get 'random', to: 'shops#random'
 
+  get 'search', to: 'shops#search'
+  
   resources :reviews
 end
