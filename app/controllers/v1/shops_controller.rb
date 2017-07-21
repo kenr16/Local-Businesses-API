@@ -3,8 +3,7 @@ class V1::ShopsController < V1::ApplicationController
 
   # GET /shops
   def index
-    @shops = Shop.all
-
+    params[:page] ? @shops = Shop.all.page(params[:page]).per(10) : @shops = Shop.all
     render json: @shops
   end
 

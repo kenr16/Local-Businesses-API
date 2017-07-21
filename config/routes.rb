@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   concern :api_base do
     resources :shops do
+      get 'page/:page', action: :index, on: :collection
       resources :reviews
     end
 
