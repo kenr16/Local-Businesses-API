@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
-  resources :shops do
+
+  concern :api_base do
+    resources :shops do
+      resources :reviews
+    end
+
+    get 'random', to: 'shops#random'
+    get 'search', to: 'shops#search'
     resources :reviews
   end
 
-  get 'random', to: 'shops#random'
+  namespace :v1 do
+    concerns :api_base
+  end
 
-  get 'search', to: 'shops#search'
-  
-  resources :reviews
+
+
+
 end

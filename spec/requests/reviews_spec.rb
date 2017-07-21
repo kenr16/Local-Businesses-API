@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Reviews", type: :request do
 
-  describe "GET shop/:shop_id/reviews" do
-    
+  describe "GET /v1/shop/:shop_id/reviews" do
+
     let!(:reviews) { FactoryGirl.create_list(:review, 60)}
-    before { get reviews_path }
+    before { get v1_reviews_path }
 
     it "returns a status code of 200" do
       expect(response).to have_http_status(200)
