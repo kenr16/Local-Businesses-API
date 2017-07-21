@@ -42,6 +42,11 @@ RSpec.describe V1::ShopsController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
+
+      # def shop_url(params)
+      #   get /shops/(params.id)
+      # end
+
       it "creates a new Shop" do
         expect {
           post :create, params: {shop: valid_attributes}, session: valid_session
