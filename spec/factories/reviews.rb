@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :review do
-    author "MyString"
-    price 1
-    rating 1
-    content "MyText"
+    author "Orin Scrivello"
+    price 3
+    rating 5
+    content "This shop was great, I bought an AWESOME plant here"
     shop nil
   end
 end
