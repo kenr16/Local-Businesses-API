@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    @reviews = @shop.reviews
+    @shop ? @reviews = @shop.reviews : @reviews = Review.all
     render json: @reviews
   end
 
@@ -45,7 +45,7 @@ class ReviewsController < ApplicationController
     end
 
     def set_shop
-      @shop = Shop.find(params[:shop_id])
+      params[:shop_id] ? @shop = Shop.find(params[:shop_id]) : @shop = nil
     end
 
     # Only allow a trusted parameter "white list" through.
