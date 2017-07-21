@@ -6,11 +6,21 @@ RSpec.describe ReviewsController, type: :controller do
   # Review. As you add validations to Review, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      author: 'Orin Scrivello',
+      price: 3,
+      rating: 5,
+      content: 'This shop was great, I bought an AWESOME plant here'
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      author: 'Me',
+      price: 300,
+      rating: 500,
+      content: 'No'
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -64,7 +74,12 @@ RSpec.describe ReviewsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          author: 'Orin Scrivello',
+          price: 1,
+          rating: 1,
+          content: 'I take that back!  DO NOT BUY ANY PLANTS FROM THIS SHOP.'
+        }
       }
 
       it "updates the requested review" do

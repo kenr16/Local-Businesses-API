@@ -2,21 +2,26 @@ require 'rails_helper'
 
 RSpec.describe ShopsController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Shop. As you add validations to Shop, be sure to
-  # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-    { name: 'Rob', years: '28' }
+    {
+      name: 'Mushniks Flower Shop',
+      address: '28 Skid Row, New York City',
+      description: 'A little shop of horrors...',
+      url: 'https://www.connectva.org/wp-content/uploads/2015/06/Little-Shop-of-Horrors2.jpg',
+      hours: "8:00am - 7:00pm"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      name: 'M',
+      address: '28 Worth Street, Skid Row, Bowery, Manhattan borough, Southern part, New York City, Long Island, New York State, United States of America, North America, Western Hemisphere, Earth, Solar System, Local, Group, Milky Way.',
+      description: 'Great',
+      url: '',
+      hours: "8"
+    }
   }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # ShopsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
@@ -65,7 +70,13 @@ RSpec.describe ShopsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          name: 'Waxwork Museum',
+          address: '123 Museum street, Everytown USA',
+          description: 'A wax museum with several interesting exhibits...',
+          url: 'http://horrormovies.net/wp-content/uploads/2016/04/knmadnaXfq4YMUrxm2y8J8FRH9C-640x300.jpg',
+          hours: "8:00am - 7:00pm"
+        }
       }
 
       it "updates the requested shop" do
