@@ -83,7 +83,9 @@ RSpec.describe ShopsController, type: :controller do
         shop = Shop.create! valid_attributes
         put :update, params: {id: shop.to_param, shop: new_attributes}, session: valid_session
         shop.reload
-        skip("Add assertions for updated state")
+
+        expect(response).to have_http_status(:ok)
+        expect(response.content_type).to eq('application/json')
       end
 
       it "renders a JSON response with the shop" do

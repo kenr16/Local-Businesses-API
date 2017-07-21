@@ -86,7 +86,9 @@ RSpec.describe ReviewsController, type: :controller do
         review = Review.create! valid_attributes
         put :update, params: {id: review.to_param, review: new_attributes}, session: valid_session
         review.reload
-        skip("Add assertions for updated state")
+
+        expect(response).to have_http_status(:ok)
+        expect(response.content_type).to eq('application/json')
       end
 
       it "renders a JSON response with the review" do
